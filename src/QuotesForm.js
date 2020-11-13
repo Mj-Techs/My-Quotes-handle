@@ -1,22 +1,33 @@
 import React, { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
+import { v4 } from "uuid";
+
 const QuotesForm = (props) => {
-  const { addQuote } = props;
-  const [name, setName] = useState("");
-  const [body, setBody] = useState("");
+  const {
+    formSubmission,
+    id: SNo,
+    name: author,
+    body: quote,
+    handleToggle,
+  } = props;
+  const [name, setName] = useState(author ? author : "");
+  const [body, setBody] = useState(quote ? quote : "");
+  const [id, setId] = useState(SNo ? SNo : v4());
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name.length > 0 && body.length > 0) {
       const formData = {
-        id: uuidv4(),
+        id: id,
         name: name,
         body: body,
       };
       // updating state value of parent.
-      addQuote(formData);
+      formSubmission(formData);
     }
 
     // reset form
+    if (handleToggle) {
+      handleToggle();
+    }
     setName("");
     setBody("");
   };

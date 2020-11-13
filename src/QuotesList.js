@@ -1,7 +1,7 @@
 import React from "react";
 import QuoteItem from "./QuoteItem";
 const QuotesList = (props) => {
-  const { quotes, removeItem } = props;
+  const { quotes, removeItem, editQuote } = props;
   return (
     <div>
       {quotes.length === 0 ? (
@@ -13,7 +13,14 @@ const QuotesList = (props) => {
         <h1>My quote - {quotes.length}</h1>
       )}
       {quotes.map((quote) => {
-        return <QuoteItem key={quote.id} {...quote} removeItem={removeItem} />;
+        return (
+          <QuoteItem
+            key={quote.id}
+            {...quote}
+            removeItem={removeItem}
+            editQuote={editQuote}
+          />
+        );
       })}
     </div>
   );
