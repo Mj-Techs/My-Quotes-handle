@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Form, Button, FormGroup, Badge } from "react-bootstrap";
 import { v4 } from "uuid";
 
 const QuotesForm = (props) => {
@@ -40,18 +41,26 @@ const QuotesForm = (props) => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <label>Name</label>
-        <br />
-        <input type="text" value={name} onChange={handleNameChange} />
-        <br />
-        <label>Body</label>
-        <br />
-        <textarea value={body} onChange={handleBodyChange}></textarea>
-        <br />
-        <input type="submit" value="save" />
-        <br />
-      </form>
+      <Form onSubmit={handleSubmit}>
+        <FormGroup>
+          <Form.Label>Name</Form.Label>
+          <br />
+          <input type="text" value={name} onChange={handleNameChange} />
+        </FormGroup>
+        <FormGroup>
+          <Form.Label>Body</Form.Label>
+          <br />
+          <textarea
+            value={body}
+            onChange={handleBodyChange}
+            rows="5"
+            cols="22"
+          ></textarea>
+        </FormGroup>
+        <Button type="submit" variant="outline-success" size="lg" active>
+          save
+        </Button>
+      </Form>
     </div>
   );
 };

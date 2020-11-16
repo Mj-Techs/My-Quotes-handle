@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Container, Row, Col } from "react-bootstrap";
 import QuotesList from "./QuotesList";
 import AddQuote from "./AddQuote";
 const QuotesContainer = (props) => {
@@ -30,12 +31,20 @@ const QuotesContainer = (props) => {
   };
   return (
     <div>
-      <QuotesList
-        quotes={quotes}
-        removeItem={removeItem}
-        editQuote={editQuote}
-      />
-      <AddQuote addItem={addQuote} />
+      <Container>
+        <Row>
+          <Col>
+            <QuotesList
+              quotes={quotes}
+              removeItem={removeItem}
+              editQuote={editQuote}
+            />
+          </Col>
+          <Col sm={2}>
+            <AddQuote addItem={addQuote} />
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 };

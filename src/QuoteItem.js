@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import Button from "@material-ui/core/Button";
+import { Button, Badge } from "react-bootstrap";
+
 import EditQuote from "./EditQuote";
 const QuoteItem = (props) => {
   const { id, name, body, removeItem, editQuote } = props;
@@ -25,19 +26,32 @@ const QuoteItem = (props) => {
             editQuote={editQuote}
             handleToggle={handleToggle}
           />
-          <Button onClick={handleToggle} variant="contained" color="primary">
-            cancel
+          <Button onClick={handleToggle} variant="danger">
+            <Badge>cancel</Badge>
           </Button>
         </div>
       ) : (
         <div>
-          <blockquote>
-            {body} - {name}
-          </blockquote>
-          <Button onClick={handleToggle} variant="contained" color="primary">
+          <h4>
+            <Badge variant="secondary">
+              {body} - {name}
+            </Badge>
+          </h4>
+
+          <Button
+            onClick={handleToggle}
+            variant="outline-success"
+            active
+            size="sm"
+          >
             edit
           </Button>
-          <Button onClick={handleRemove} variant="contained" color="primary">
+          <Button
+            onClick={handleRemove}
+            variant="outline-danger"
+            active
+            size="sm"
+          >
             remove
           </Button>
         </div>

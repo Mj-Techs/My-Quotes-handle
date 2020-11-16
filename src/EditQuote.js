@@ -1,4 +1,5 @@
 import React from "react";
+import { Badge } from "react-bootstrap";
 import QuotesForm from "./QuotesForm";
 
 const EditQuote = (props) => {
@@ -8,7 +9,9 @@ const EditQuote = (props) => {
   };
   return (
     <div>
-      <h2>Edit Your Quote</h2>
+      <h2>
+        <Badge variant="info">Edit Your Quote</Badge>
+      </h2>
       <QuotesForm
         id={id}
         name={name}

@@ -1,4 +1,5 @@
 import React from "react";
+import { Badge } from "react-bootstrap";
 import QuoteItem from "./QuoteItem";
 const QuotesList = (props) => {
   const { quotes, removeItem, editQuote } = props;
@@ -10,7 +11,9 @@ const QuotesList = (props) => {
           <p>Add your first quote</p>
         </div>
       ) : (
-        <h1>My quote - {quotes.length}</h1>
+        <h1>
+          <Badge variant="primary">My quote - {quotes.length}</Badge>
+        </h1>
       )}
       {quotes.map((quote) => {
         return (
